@@ -28,6 +28,7 @@ int main(){
         cout << 0;
     }
     else{
+        s/=2;
         Try(1,0);
         cout << ok << endl;
     }
