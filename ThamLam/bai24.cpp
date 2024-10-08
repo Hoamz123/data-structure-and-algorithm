@@ -9,14 +9,17 @@ bool check(int a[],int n){
     return true;
 }
 int main(){
+    //vao ra file
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt","w",stdout);
     int n;cin >> n;
     int a[n];
-    for(int &x : a )cin >> x;
+    for(int &x : a) cin >> x;
     if(n % 2 == 0) cout << "No" << endl;
     else{
         int i = 0;int j = n-1;
         while(i<j){
-            if(a[i] >= a[j]){
+            if(a[i] > a[j]){
                 swap(a[i],a[j]);
             }
             ++i;
