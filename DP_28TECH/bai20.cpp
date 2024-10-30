@@ -19,9 +19,7 @@ int main(){
                     f[i][j] = 1;
                 }
                 else{
-                    if(a[i-1][j-1] && a[i-1][j] && a[i][j-1]){
-                        f[i][j] = min({f[i-1][j-1],f[i-1][j],f[i][j-1]}) + 1;
-                    }
+                    f[i][j] = min({f[i-1][j-1],f[i-1][j],f[i][j-1]}) + 1;
                 }
                 ans = max(ans,f[i][j]);
             }
