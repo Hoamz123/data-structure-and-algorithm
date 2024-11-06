@@ -12,6 +12,7 @@ void Try(int idx,int sum,int point){
         Try(i+1,sum + t[i],point + d[i]);
     }
 }
+
 int main(){
     cin >> n >> S;
     for(int i=0;i<n;i++){
