@@ -25,7 +25,7 @@ void insertionSort(int a[],int n){
     for(int i=1;i<n;i++){
         int pos = i-1;int x = a[i];
         while(pos >= 0 && a[pos] > x){
-            //chuyen va sau
+            //chuyen ve sau
             a[pos + 1] = a[pos];
             pos--;
         }
@@ -49,7 +49,7 @@ void quickSort(int a[],int l,int r){
         }
     }
     if(i<=r) quickSort(a,i,r);
-    if(j>=l) quickSort(a,l,j); 
+    if(j>=l) quickSort(a,l,j);
 }
 void bubleSort(int a[],int n){
     for(int i=0;i<n;i++){
@@ -60,18 +60,65 @@ void bubleSort(int a[],int n){
         }
     }
 }
+
+void merge(vector<int>& arr, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    std::vector<int> leftArr(n1), rightArr(n2);
+
+    for (int i = 0; i < n1; i++)
+        leftArr[i] = arr[left + i];
+    for (int j = 0; j < n2; j++)
+        rightArr[j] = arr[mid + 1 + j];
+
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (leftArr[i] <= rightArr[j]) {
+            arr[k++] = leftArr[i++];
+        } else {
+            arr[k++] = rightArr[j++];
+        }
+    }
+
+    while (i < n1) {
+        arr[k++] = leftArr[i++];
+    }
+
+    while (j < n2) {
+        arr[k++] = rightArr[j++];
+    }
+}
+
+void mergeSort(vector<int>& arr, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+
+        merge(arr, left, mid, right);
+    }
+}
+
 void display(int a[],int n){
     for(int i=0;i<n;i++){
         cout << a[i] << " ";
     }
 }
 int main(){
-    int a[5] = {2,3,1,4,5};
+    //int a[5] = {2,3,1,4,5};
     //SelectionSort(a,5);
     //xxtt(a,5);
     //insertionSort(a,5);
     //quickSort(a,0,4);
     //bubleSort(a,5);
-    display(a,5);
+    //display(a,5);
+    vector<int> v;
+    for(int i=0;i<10;i++){
+        v.push_back(10 - i);
+    }
+    mergeSort(v,0,9);
+    for(int i : v) cout << i << " ";
     return 0;
 }

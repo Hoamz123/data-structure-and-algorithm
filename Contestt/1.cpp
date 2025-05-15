@@ -1,14 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
+int a[1000001];
+map<int,int> mp;
+int mod = 1e9 + 7;
 int main(){
-    freopen("CHIPHI.INP","r",stdin);
-    freopen("CHIPHI.OUT","w",stdout);
-    int n,x;cin >> n >> x;
-    ll ans = 0;
-    if(n % 2 == 0){
-        ans = 1ll * (n/2) * x;
+    int n;cin >> n;
+    for(int i=1;i<=n;i++) {
+        cin >> a[i];
     }
-    else ans = 1ll *  ((n+1) / 2) * x;
-    cout << ans;
+    ll cnt = 0;
+    for(int i=1;i<=n;i++){
+        int x = mp[a[i]];
+        if(x > 0){
+            cnt+=x;
+        }
+        mp[a[i]]++;
+    }
+    cout << cnt;
 }

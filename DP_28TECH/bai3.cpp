@@ -16,5 +16,6 @@ int main(){
             *it = a[i];
         }
     }
-    cout << v.size();
+    cout << v.size() << endl;
+    for(int x : v) cout << x << " ";
 }

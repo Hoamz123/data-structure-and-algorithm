@@ -24,17 +24,20 @@ ll lt(int a,int b){
     return x * x;
 }
 int main(){
-    int n;cin >> n;
-    int a[n];
-    for(int &x : a) cin >> x;
-    int m;cin >> m;
-    int b[m];
-    for(int &x : b) cin >> x;
-    ll mu = 0;
-    for(int x : b) {
-        mu += bs(a,n,x);
-    }
-    if(mu < 0) cout << 0;
-    else cout << 1ll * lt(2,mu);
+    // int n;cin >> n;
+    // int a[n];
+    // for(int &x : a) cin >> x;
+    // int m;cin >> m;
+    // int b[m];
+    // for(int &x : b) cin >> x;
+    // ll mu = 0;
+    // for(int x : b) {
+    //     mu += bs(a,n,x);
+    // }
+    // if(mu < 0) cout << 0;
+    // else cout << 1ll * lt(2,mu);
+    vector<int> a(5);
+    for(int i=0;i<5;i++) cin >> a[i];
+    for(int i : a) cout << i <<  " ";
     return 0;
 }
